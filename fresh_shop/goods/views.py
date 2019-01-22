@@ -39,6 +39,9 @@ def detail(request,id):
     if request.method == 'GET':
         goods = Goods.objects.filter(pk=id).first()
 
+        goods.click_nums = goods.click_nums + 1
+        goods.is_hot = goods.is_hot + 1
+        goods.save()
         #最近浏览
 
         goods_list = [goods.id,1]
@@ -62,4 +65,64 @@ def detail(request,id):
 
 
         return render(request,'detail.html',{'goods':goods,'click':click})
+
+
+
+
+def list(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.all()
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+
+def list2(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.order_by('shop_price')
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+
+
+def list3(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.order_by('is_hot')
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+
+def list11(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=1)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+def list12(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=2)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+def list13(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=3)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+def list14(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=4)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+def list15(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=5)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
+
+def list16(request):
+    if request.method == 'GET':
+        new_goods = Goods.objects.order_by('-id')[:5]
+        goods = Goods.objects.filter(category_id=6)
+        return render(request,'list.html',{'goods':goods,'new_goods':new_goods})
 

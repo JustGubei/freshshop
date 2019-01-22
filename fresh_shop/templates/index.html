@@ -14,7 +14,7 @@
 {% block content %}
 	<div class="navbar_con">
 		<div class="navbar">
-			<h1 class="fl">全部商品分类</h1>
+			<h1 class="fl"><a href="{% url 'goods:list' %}">全部商品分类</a></h1>
 			<ul class="navlist fl">
 				<li><a href="">首页</a></li>
 				<li class="interval">|</li>
@@ -27,12 +27,12 @@
 
 	<div class="center_con clearfix">
 		<ul class="subnav fl">
-			<li><a href="#model01" class="fruit">新鲜水果</a></li>
-			<li><a href="#model02" class="seafood">海鲜水产</a></li>
-			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
-			<li><a href="#model04" class="egg">禽类蛋品</a></li>
-			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
-			<li><a href="#model06" class="ice">速冻食品</a></li>
+			<li><a href="{% url 'goods:list11' %}" class="fruit">新鲜水果</a></li>
+			<li><a href="{% url 'goods:list12' %}" class="seafood">海鲜水产</a></li>
+			<li><a href="{% url 'goods:list13' %}" class="meet">猪牛羊肉</a></li>
+			<li><a href="{% url 'goods:list14' %}" class="egg">禽类蛋品</a></li>
+			<li><a href="{% url 'goods:list15' %}" class="vegetables">新鲜蔬菜</a></li>
+			<li><a href="{% url 'goods:list16' %}" class="ice">速冻食品</a></li>
 		</ul>
 		<div class="slide fl">
 			<ul class="slide_pics">
